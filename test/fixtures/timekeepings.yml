@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2016-03-03 13:10:26
+  end: 2016-03-03 13:10:26
+two:
+  start: 2016-03-03 13:10:26
+  end: 2016-03-03 13:10:26
+not_clocked_out:
+  start: 2016-03-03 13:20:25
+not_clocked_in:
+  start:
+malformed:
+  end: 2016-03-03 13:20:25
