@@ -1,5 +1,6 @@
 class Timekeeping < ActiveRecord::Base
   before_save :check_malformed
+  has_one :task
 
   # was it started
   def check_malformed

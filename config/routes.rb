@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'hours/index'
-
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,9 +6,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  resources :projects
   post 'clock_in' => 'home#clock_in'
   post 'clock_out' => 'home#clock_out'
   get 'hours' => 'hours#index'
+  get 'projects/:id/tasks/new' => 'projects#new_task'
+  post 'projects/:id' => 'projects#create_task'
+  get 'projects/:id/tasks/:task_id' => 'projects#show_task'
+  get 'hours/select_project' => 'hours#clock_in_to_task'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
