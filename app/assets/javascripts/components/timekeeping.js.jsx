@@ -65,7 +65,7 @@ var Timekeeping = React.createClass({
     var clock_out_btn = this.getClockOutButton();
     return(
       <div className="row">
-        <div className="col s6 offset-s3">
+        <div className="col s12 offset-m4 m4">
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Clock In</span>

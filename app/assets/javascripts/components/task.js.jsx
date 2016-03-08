@@ -2,7 +2,24 @@ var Task = React.createClass({
   propTypes: {
     title: React.PropTypes.string
   },
+  clockIn: function(){
+    $.ajax({
+      url: "/clock_in",
+      type: "POST",
+      data: {
+        timekeeping: {
+          start: new Date(),
+          task_id: this.props.task.id,
+          end: null
+        }
+      },
+      success: function(response){
+        console.log(response)
+        window.location.href = "/";
+      }
+    })
 
+  },
   render: function() {
     console.log(this.props.task.title)
     return (
@@ -12,6 +29,8 @@ var Task = React.createClass({
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">{this.props.task.title}</span>
+              <br></br>
+              <button className="btn btn-default" onClick={this.clockIn}>Clock In</button>
             </div>
           </div>
         </div>

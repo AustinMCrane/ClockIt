@@ -10,6 +10,9 @@ var TimeOverview = React.createClass({
           <div className="left-center">
             {hour.start}
           </div>
+          <div className="left-align">
+            {hour.task_id}
+          </div>
           <div className="right-align">
             {hour.end}
           </div>
@@ -22,11 +25,11 @@ var TimeOverview = React.createClass({
     var hourList = this.getHoursList();
     return(
       <div className="row">
-        <div className="col s10 offset-s1">
+        <div className="col s12 offset-m4 m4">
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Hours</span>
-                <ul className="collection scroll">
+                <ul className="collection">
                     {hourList}
                 </ul>
             </div>

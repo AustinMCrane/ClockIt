@@ -22,7 +22,7 @@ var Project = React.createClass({
     var tasks = this.getTasksList()
     return (
       <div className="row">
-        <div className="col s10 offset-s1">
+        <div className="col s11 offset-m4 m4">
           <a href={"/projects/"  + this.props.project.id + "/tasks/new"} id="add_project" className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></a>
           <div className="card">
             <div className="card-content text-center">
@@ -61,8 +61,8 @@ var ProjectsList = React.createClass({
     var projectsList = this.getProjectsList();
     return (
       <div className="row">
-        <div className="col s10 offset-s1">
-          <a href="/projects/" id="add_project" className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></a>
+        <div className="col s11 offset-m4 m4">
+          <a href="/projects/new" id="add_project" className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></a>
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Projects</span>
@@ -118,7 +118,7 @@ var ProjectCreateForm = React.createClass({
   render: function() {
     return (
       <div className="row">
-        <div className="col s6 offset-s3">
+        <div className="col s12 offset-m4 m4">
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Create A Project</span>

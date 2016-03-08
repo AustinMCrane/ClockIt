@@ -45,7 +45,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    puts "create"
     @project = Project.new(project_params)
 
     if @project.save

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "saves a valid task" do
+  end
 end

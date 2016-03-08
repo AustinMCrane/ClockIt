@@ -1,6 +1,8 @@
 class Timekeeping < ActiveRecord::Base
   before_save :check_malformed
-  has_one :task
+  belongs_to :task
+  belongs_to :user
+  validates :task, :user, presence: true
 
   # was it started
   def check_malformed
