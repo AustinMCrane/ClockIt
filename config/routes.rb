@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   get 'admin/index'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   root 'hours#index'
   resources :projects

@@ -17,7 +17,8 @@ gem 'devise'
 # for image uploads
 gem "paperclip", "~> 4.3"
 # roles for users
-gem "rolify"
+gem 'authority'
+gem 'rolify'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -26,7 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-# gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
