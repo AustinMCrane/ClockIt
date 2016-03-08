@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 # for image uploads
 gem "paperclip", "~> 4.3"
+# roles for users
+gem "rolify"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
