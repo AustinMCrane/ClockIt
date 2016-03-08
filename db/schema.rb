@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160308171225) do
   end
 
   create_table "timekeepings", force: :cascade do |t|
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "started"
+    t.datetime "ended"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "task_id",    limit: 4

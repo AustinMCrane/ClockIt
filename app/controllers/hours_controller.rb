@@ -1,7 +1,7 @@
 class HoursController < ApplicationController
   before_action :set_timekeeping, only: [:clock_out, :clock_in, :index]
   def index
-    @is_clocked_in =  @timekeeping.start?
+    @is_clocked_in =  @timekeeping.started?
     render component: 'Timekeeping', props: {clocked_in: @is_clocked_in}
   end
 
@@ -15,7 +15,7 @@ class HoursController < ApplicationController
     render component: 'ProjectsList', props: {projects: @projects}
   end
   def clock_in
-    @timekeeping.start = timekeeping_params[:start]
+    @timekeeping.started = timekeeping_params[:started]
     @timekeeping.task_id = timekeeping_params[:task_id]
     @timekeeping.user_id = current_user.id
     puts "hello"
@@ -27,8 +27,8 @@ class HoursController < ApplicationController
   end
 
   def clock_out
-    if @timekeeping.start?
-      @timekeeping.end = timekeeping_params[:end]
+    if @timekeeping.started?
+      @timekeeping.ended = timekeeping_params[:ended]
       if @timekeeping.save
         set_timekeeping
         render json: {success: true,  message: "You successfully clocked out!"}
@@ -42,7 +42,7 @@ class HoursController < ApplicationController
   private
 
   def timekeeping_params
-    params.require(:timekeeping).permit(:start, :end, :task_id)
+    params.require(:timekeeping).permit(:started, :ended, :task_id)
   end
 
   def set_timekeeping

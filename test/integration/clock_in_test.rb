@@ -16,7 +16,7 @@ class ClockInTest < ActionDispatch::IntegrationTest
   end
 
   def clock_in
-    post '/clock_in', timekeeping: { task_id: 1, start: Time.now }
+    post '/clock_in', timekeeping: { task_id: 1, started: Time.now }
     assert_response 302
   end
 end

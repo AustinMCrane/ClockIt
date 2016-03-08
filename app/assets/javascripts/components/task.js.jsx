@@ -8,7 +8,7 @@ var Task = React.createClass({
       type: "POST",
       data: {
         timekeeping: {
-          start: new Date(),
+          started: new Date(),
           task_id: this.props.task.id,
           end: null
         }

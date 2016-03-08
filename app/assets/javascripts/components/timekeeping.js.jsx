@@ -29,8 +29,8 @@ var Timekeeping = React.createClass({
       type: "POST",
       data: {
         timekeeping: {
-          start: null,
-          end: new Date()
+          started: null,
+          ended: new Date()
         }
       },
       success: function(){

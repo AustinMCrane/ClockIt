@@ -3,10 +3,12 @@ class Timekeeping < ActiveRecord::Base
   belongs_to :task
   belongs_to :user
   validates :task, :user, presence: true
-
+  def hours
+    return ((ended - started) / 3600).round(2)
+  end
   # was it started
   def check_malformed
-    if start?
+    if started?
       return true
     else
       return false
@@ -15,7 +17,7 @@ class Timekeeping < ActiveRecord::Base
 
   # does it have a start and end
   def finished
-    if (start?) and (end?)
+    if (started?) and (ended?)
       return true
     else
       return false
