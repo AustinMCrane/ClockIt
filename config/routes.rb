@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'clock_in' => 'hours#clock_in'
   post 'clock_out' => 'hours#clock_out'
   get 'hours' => 'hours#view_times'
+  get 'admin' => 'admin#employees'
   get 'projects/:id/tasks/new' => 'projects#new_task'
   post 'projects/:id' => 'projects#create_task'
   get 'projects/:id/tasks/:task_id' => 'projects#show_task'

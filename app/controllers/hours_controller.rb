@@ -6,10 +6,9 @@ class HoursController < ApplicationController
   end
 
   def view_times
-    @times = Timekeeping.where(user_id: current_user.id)
-    render component: 'TimeOverview', props: {times: @times}
+    @times = Timekeeping.where(user_id: current_user.id).order("id desc")
+    render component: 'TimeOverview', props: {times: @times, hours: current_user.hours}, prerender: false
   end
-
   def clock_in_to_task
     @projects = Project.all
     render component: 'ProjectsList', props: {projects: @projects}
@@ -29,6 +28,7 @@ class HoursController < ApplicationController
   def clock_out
     if @timekeeping.started?
       @timekeeping.ended = timekeeping_params[:ended]
+      @timekeeping.hours = ((@timekeeping.ended - @timekeeping.started) / 3600).round(2)
       if @timekeeping.save
         set_timekeeping
         render json: {success: true,  message: "You successfully clocked out!"}

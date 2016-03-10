@@ -1,0 +1,22 @@
+.calendar{
+  table{
+    thead{
+      th{
+        text-align: center;
+      }
+    }
+    td{
+      border: 1px solid #efefef;
+      padding-top: 0;
+      .date{
+        font-size: 8pt;
+        color: #afafaf;
+      }
+      .hours{
+        margin-top: 6px;
+        text-align: center;
+        color: rgb(112, 177, 160);
+      }
+    }
+  }
+}

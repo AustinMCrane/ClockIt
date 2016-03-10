@@ -15,6 +15,9 @@ class ProjectsController < ApplicationController
     render component: 'Project', props: {project: @project, tasks: @tasks}
   end
 
+  def employees_on_project
+    
+  end
   # GET /projects/new
   def new
     @project = Project.new

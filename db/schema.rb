@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308171225) do
+ActiveRecord::Schema.define(version: 20160309230156) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20160308171225) do
   create_table "timekeepings", force: :cascade do |t|
     t.datetime "started"
     t.datetime "ended"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "task_id",    limit: 4
     t.integer  "user_id",    limit: 4
+    t.decimal  "hours",                precision: 10
   end
 
   add_index "timekeepings", ["task_id"], name: "index_timekeepings_on_task_id", using: :btree
