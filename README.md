@@ -1,2 +1,1 @@
-# IN DEVELOPMENT
-_checkout develop branch for updated content_
+[![Travis Build](https://travis-ci.org/AustinMCrane/ClockIt.svg?branch=master)](https://travis-ci.org/AustinMCrane/ClockIt)

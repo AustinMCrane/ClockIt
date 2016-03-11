@@ -7,18 +7,19 @@ var Timekeeping = React.createClass({
   onClockIn: function(){
     this.refs.clock_out_btn.disabled = false
     this.refs.clock_in_btn.disabled = true
-    $.ajax({
-      url: "/clock_in",
-      type: "POST",
-      data: {
-        timekeeping: {
-          start: new Date(),
-          end: null
-        }
-      },
-      success: function(){
-      }
-    })
+    // $.ajax({
+    //   url: "/clock_in",
+    //   type: "POST",
+    //   data: {
+    //     timekeeping: {
+    //       start: new Date(),
+    //       end: null
+    //     }
+    //   },
+    //   success: function(){
+    //   }
+    // })
+    window.location.href = "/projects/";
   },
   onClockOut: function(){
     this.refs.clock_out_btn.disabled = true
@@ -28,8 +29,8 @@ var Timekeeping = React.createClass({
       type: "POST",
       data: {
         timekeeping: {
-          start: null,
-          end: new Date()
+          started: null,
+          ended: new Date()
         }
       },
       success: function(){
@@ -49,13 +50,13 @@ var Timekeeping = React.createClass({
   },
   getClockOutButton: function(){
     return(
-      <button onClick={this.onClockOut} ref="clock_out_btn"  className="btn btn-default">Clock Out</button>
+      <button onClick={this.onClockOut} ref="clock_out_btn"  className="btn btn-default margin-small">Clock Out</button>
     );
 
   },
   getClockInButton: function(){
     return(
-      <button onClick={this.onClockIn} ref="clock_in_btn"  className="btn btn-default" >Clock In</button>
+      <button onClick={this.onClockIn} ref="clock_in_btn"  className="btn btn-default margin-small" >Clock In</button>
     );
 
   },
@@ -63,24 +64,21 @@ var Timekeeping = React.createClass({
     var clock_in_btn = this.getClockInButton();
     var clock_out_btn = this.getClockOutButton();
     return(
-    <div className="panel panel-default">
-      <div className="panel-heading">
-        <h3>Clock In</h3>
+      <div className="row">
+        <div className="col s12 offset-m4 m4">
+          <div className="card">
+            <div className="card-content text-center">
+              <span className="card-title">Clock In</span>
+            </div>
+            <div className="card-action text-center">
+              {clock_in_btn}
+              {clock_out_btn}
+              <a type="button" href="/hours" className="btn btn-default">View Hours</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="panel-body">
-        <ul className="list-inline text-center">
-          <li>
-            {clock_in_btn}
-          </li>
-          <li>
-            {clock_out_btn}
-          </li>
-          <li>
-            <a type="button" href="/hours" className="btn btn-default">View Hours</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+
   );
   }
 });

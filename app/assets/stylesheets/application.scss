@@ -13,16 +13,37 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ html,
+ body{
+   margin: 0;
+   padding: 0;
+   height: 100%;
+ }
 .logo{
   margin-top: 15px;
-  max-width: 100px;
-}
-#content{
-  margin-top: 8px;
+  max-width: 120px;
 }
 .scroll{
   max-height: 600px;
   overflow-y: scroll;
+}
+.text-center{
+  text-align: center;
+}
+.margin-small{
+  margin: 8px;
+}
+#content{
+  margin-top: 20px;
+  min-height: 90%;
+}
+.hide-on-med-and-down{
+  li{
+    color: #333
+  }
+}
+#add_project{
+  margin-bottom: -20px;
+  margin-right: -20px;
+  float: right;
 }
