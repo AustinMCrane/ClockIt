@@ -15,10 +15,9 @@ module Timeclock
     config.react.server_renderer_pool_size  ||= 1  # ExecJS doesn't allow more than one on MRI
     config.react.server_renderer_timeout    ||= 20 # seconds
     config.react.server_renderer = React::ServerRendering::SprocketsRenderer
-    
+    config.assets.precompile += %w( server_rendering.js ))
     config.react.server_renderer_options = {
       files: ["server_rendering.js"], # files to load for prerendering
-      replay_console: true,                 # if true, console.* will be replayed client-side
     }
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
