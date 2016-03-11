@@ -8,5 +8,6 @@ class Project < ActiveRecord::Base
     return @hours
   end
   def assigned_employees
+    
   end
 end

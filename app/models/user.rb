@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
     end
     return @hours
   end
+  def clock_out
+  end
+  def clock_in
+
+  end
 end

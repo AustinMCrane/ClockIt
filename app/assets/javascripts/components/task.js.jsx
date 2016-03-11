@@ -24,7 +24,7 @@ var Task = React.createClass({
     console.log(this.props.task.title)
     return (
       <div className="row">
-        <div className="col s10 offset-s1">
+        <div className="col s12 offset-m4 m4">
           <a id="add_task" className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></a>
           <div className="card">
             <div className="card-content text-center">

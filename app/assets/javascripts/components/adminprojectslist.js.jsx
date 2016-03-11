@@ -1,14 +1,40 @@
 var Employee = React.createClass({
+  clockOut: function(){
+    $.ajax({
+      type: "POST",
+      url: "/admin/clock_user_out",
+      data: {
+        user: {
+          user_id: this.props.employee.id,
+        }
+      },
+      success: function(){
+        window.location.href = "/admin/";
+      }
+    })
+  },
   render: function(){
     console.log("hello")
-    return(
-      <li className="collection-item">
-        <div>
-          <img src={"http://www.gravatar.com/avatar/" + this.props.employee.email} />
-          <h6>{this.props.employee.email}</h6>
-        </div>
-      </li>
-    )
+    if (this.props.employee.clocked_in) {
+      return(
+        <li className="collection-item">
+          <div>
+            <img src={"http://www.gravatar.com/avatar/" + this.props.employee.email} />
+            <h6>{this.props.employee.email}</h6>
+            <button onClick={this.clockOut}>Clock Out</button>
+          </div>
+        </li>
+      )
+    }else{
+      return(
+        <li className="collection-item">
+          <div>
+            <img src={"http://www.gravatar.com/avatar/" + this.props.employee.email} />
+            <h6>{this.props.employee.email}</h6>
+          </div>
+        </li>
+      )
+    }
   }
 })
 var UsersProjectDetail = React.createClass({
@@ -62,30 +88,47 @@ var AdminProjectsList = React.createClass({
   }
 })
 var AdminEmployeesList = React.createClass({
-  getEmployees: function(){
+  getEmployees: function(clocked_in){
     var employees = []
     for (var i = 0; i < this.props.employees.length; i++) {
       var employee = this.props.employees[i]
-      employees.push(
-        <Employee employee={employee} />
-      )
+      if (clocked_in == employee.clocked_in) {
+        employees.push(
+          <Employee employee={employee} />
+        )
+      }
     }
     return employees
   },
   render: function(){
-    var employees = this.getEmployees();
+    var employees_clocked_in = this.getEmployees(true);
+    var employees_clocked_out = this.getEmployees(false);
     return (
+      <div>
       <div className="row">
-        <div className="col s11 offset-m2 m6">
+        <div className="col s11 offset-m3 m6">
           <div className="card">
             <div className="card-content text-center">
-              <span className="card-title">Employees</span>
+              <span className="card-title">Clocked In</span>
               <ul className="collection">
-                {employees}
+                {employees_clocked_in}
               </ul>
             </div>
           </div>
         </div>
+      </div>
+      <div className="row">
+        <div className="col s11 offset-m3 m6">
+          <div className="card">
+            <div className="card-content text-center">
+              <span className="card-title">Clocked Out</span>
+              <ul className="collection">
+                {employees_clocked_out}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     )
   }

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root 'hours#index'
   resources :projects
+  post 'admin/clock_user_out' => 'admin#clock_user_out'
   post 'clock_in' => 'hours#clock_in'
   post 'clock_out' => 'hours#clock_out'
   get 'hours' => 'hours#view_times'

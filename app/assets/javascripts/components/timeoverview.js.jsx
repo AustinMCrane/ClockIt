@@ -219,13 +219,6 @@ var TimeOverview = React.createClass({
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Hours ({total_hours} hrs)</span>
-              <form>
-                <label htmlFor="start">From Date</label>
-                <input ref="start" type="date" id="start"  className="datepicker validate" />
-                <label htmlFor="end">To Date</label>
-                <input ref="ended" type="date" id="end" className="datepicker validate" />
-                <button className="btn btn-default" onClick={this.updateTimes}>Update</button>
-              </form>
               <div className="calendar">
                 <h2>
                 </h2>

@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, only: [:new_task,:create_task, :create, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -16,8 +17,9 @@ class ProjectsController < ApplicationController
   end
 
   def employees_on_project
-    
+
   end
+
   # GET /projects/new
   def new
     @project = Project.new

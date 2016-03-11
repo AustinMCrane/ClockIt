@@ -17,6 +17,8 @@ class HoursController < ApplicationController
     @timekeeping.started = timekeeping_params[:started]
     @timekeeping.task_id = timekeeping_params[:task_id]
     @timekeeping.user_id = current_user.id
+    current_user.clocked_in = true
+    current_user.save
     puts "hello"
     if @timekeeping.save
       render json: {success: true,  message: "You successfully clocked in!"}
@@ -29,7 +31,10 @@ class HoursController < ApplicationController
     if @timekeeping.started?
       @timekeeping.ended = timekeeping_params[:ended]
       @timekeeping.hours = ((@timekeeping.ended - @timekeeping.started) / 3600).round(2)
+
       if @timekeeping.save
+        current_user.clocked_in = false
+        current_user.save
         set_timekeeping
         render json: {success: true,  message: "You successfully clocked out!"}
       end
