@@ -20,6 +20,7 @@ gem "paperclip", "~> 4.3"
 gem 'authority'
 gem 'rolify'
 gem 'gravatarify', '~> 3.0.0'
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
