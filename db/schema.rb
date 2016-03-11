@@ -13,17 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20160310165716) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "projects", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "resource_id",   limit: 4
-    t.string   "resource_type", limit: 255
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,45 +35,45 @@ ActiveRecord::Schema.define(version: 20160310165716) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.integer  "project_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "timekeepings", force: :cascade do |t|
     t.datetime "started"
     t.datetime "ended"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "task_id",    limit: 4
-    t.integer  "user_id",    limit: 4
-    t.decimal  "hours",                precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.decimal  "hours"
   end
 
   add_index "timekeepings", ["task_id"], name: "index_timekeepings_on_task_id", using: :btree
   add_index "timekeepings", ["user_id"], name: "index_timekeepings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "unconfirmed_email"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.boolean  "clocked_in"
-    t.string   "f_name",                 limit: 255
-    t.string   "l_name",                 limit: 255
+    t.string   "f_name"
+    t.string   "l_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -78,8 +81,8 @@ ActiveRecord::Schema.define(version: 20160310165716) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4
-    t.integer "role_id", limit: 4
+    t.integer "user_id"
+    t.integer "role_id"
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
