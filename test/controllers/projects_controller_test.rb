@@ -19,13 +19,6 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create project" do
-    assert_difference('Project.count') do
-      post :create, project: { description: @project.description, title: @project.title }
-    end
-
-    assert_response :success
-  end
 
   test "should show project" do
     get :show, id: @project
