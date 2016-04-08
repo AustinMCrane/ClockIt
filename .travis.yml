@@ -4,7 +4,7 @@ rvm:
 services:
 - mysql
 before_script:
-  - mysql -e 'create database timeclock_test;'
+  - psql -c 'create database timeclock_development;' -U postgres
 deploy:
   provider: heroku
   api_key:
