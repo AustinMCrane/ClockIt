@@ -3,6 +3,8 @@ rvm:
 - 2.0.0
 services:
 - mysql
+before_script:
+  - mysql -e 'create database timeclock_test;'
 deploy:
   provider: heroku
   api_key:
