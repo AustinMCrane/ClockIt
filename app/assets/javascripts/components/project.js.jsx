@@ -97,7 +97,7 @@ var ProjectCreateForm = React.createClass({
     }
     $.ajax({
       type: "POST",
-      url: "/projects.json",
+      url: "/projects",
       data: project,
       success: function(response){
         console.log(response)

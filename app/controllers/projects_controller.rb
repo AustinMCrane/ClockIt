@@ -51,10 +51,11 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+    puts @project.to_yaml
     if @project.save
       # format.html { redirect_to @project, notice: 'Project was successfully created.' }
       render json: @project
+
     else
       # format.html { render :new }
       format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -69,6 +70,13 @@ class ProjectsController < ApplicationController
 
     def task_params
       params.require(:task).permit(:title, :project_id)
+    end
+    def check_admin
+      if current_user.has_role? :admin
+        return true
+      else
+        redirect_to '/'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
