@@ -1,0 +1,7 @@
+{
+  "name": "ClockIt",
+  "description": "A timekeeping app for small and big teams",
+  "repository": "https://github.com/AustinMCrane/ClockIt",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["rails"]
+}

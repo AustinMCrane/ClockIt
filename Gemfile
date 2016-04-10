@@ -21,7 +21,9 @@ gem 'authority'
 gem 'rolify'
 gem 'gravatarify', '~> 3.0.0'
 gem 'rails_12factor', group: :production
-
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+gem 'faker'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

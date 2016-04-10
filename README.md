@@ -2,3 +2,4 @@
 # Clock It (beta)
 ### Timekeeping for teams
 [![Travis Build](https://travis-ci.org/AustinMCrane/ClockIt.svg?branch=master)](https://travis-ci.org/AustinMCrane/ClockIt)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
