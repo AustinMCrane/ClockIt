@@ -8,6 +8,21 @@ class AdminController < ApplicationController
     @employees = User.all
     render component: 'AdminEmployeesList', props: {employees: @employees}
   end
+  def new_employee
+    @employee = User.new
+    render component: 'EmployeeCreate'
+  end
+  def create_employee
+    @user = User.new(:email => params[:email], :password => params[:password])
+    @user.clocked_in = false
+    @user.save
+    if @user.save
+      render json: {success: true,  message: "You successfully clocked in!"}
+    else
+      render json: @user.errors
+    end
+
+  end
   def clock_user_out
     puts employee_params[:id]
     @employee = User.find(employee_params[:user_id])

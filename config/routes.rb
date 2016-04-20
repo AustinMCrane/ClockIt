@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   get 'admin/index'
-
+  get 'admin/employees/new' => 'admin#new_employee'
+  post 'admin/employees/' => 'admin#create_employee'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
