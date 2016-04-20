@@ -106,7 +106,16 @@ var AdminEmployeesList = React.createClass({
     return (
       <div>
       <div className="row">
-        <div className="col s11 offset-m3 m6">
+        <div className="col s6 m3">
+          <div className=" collection ">
+            <h4>Options</h4>
+            <a href="/admin/employees/new" className="collection-item">Add Employee</a>
+            <a href="#!" className="collection-item active">Alvin</a>
+            <a href="#!" className="collection-item">Alvin</a>
+            <a href="#!" className="collection-item">Alvin</a>
+          </div>
+        </div>
+      <div className="col s11  m6">
           <div className="card">
             <div className="card-content text-center">
               <span className="card-title">Clocked In</span>

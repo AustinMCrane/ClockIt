@@ -55,7 +55,7 @@ class HoursController < ApplicationController
     if @timekeeping.nil?
       @timekeeping = Timekeeping.new
     end
-    if @timekeeping.finished
+    if (@timekeeping.finished) && (@timekeeping.started)
       @timekeeping = Timekeeping.new
     end
   end
